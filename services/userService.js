@@ -7,4 +7,18 @@ const create = async (client) => {
     return { client: userRecord }; 
 }
 
-export default { create };
+const findAll = async () => {
+
+    const users = await userModel.find({});
+    
+    return { users };
+}
+
+const findOne = async (conditions) => {
+
+    const user = await userModel.find(conditions).exec();
+    
+    return { user };
+}
+
+export default { create, findAll, findOne };
