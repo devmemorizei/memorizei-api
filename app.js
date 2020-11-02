@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    //origin: 'https://nameless-inlet-45234.herokuapp.com',
+    //origin: 'http://localhost:3000/',
   })
 );
 

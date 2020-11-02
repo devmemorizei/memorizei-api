@@ -3,19 +3,40 @@ import mongoose from 'mongoose';
 const usersSchema = mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
+    },
+    birthDate: {
+        type: Date,
+        required: true
     },
     email: {
         type: String,
-        require: true
+        required: true
+    },
+    cpf: {
+        type: String,
+        required: true
     },
     password: {
         type: String,
-        require: true
+        required: true
+    },
+    homePhone: {
+        type: String,
+        required: false
+    },
+    cellPhone: {
+        type: String,
+        required: false
+    },
+    typeUser: {
+        type: Number,
+        required: true
     },
     date: {
         type: Date,
-        require: true
+        required: true,
+        default: Date.now
     }
 });
 

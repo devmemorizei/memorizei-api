@@ -4,17 +4,17 @@ const create = async (req, res) => {
     try {
         const response = await userService.create(req.body);
         return res.status(201).json(response);
-    } catch (e) {
-        return  res.status(500).send({ message: error.message || 'Algum erro ocorreu ao salvar' });
+    } catch (error) {
+        return  res.status(500).send({ message: error.message});
     }
 };
 
-const getAll = async (req, res, next) => {
+const getAll = async (_req, res, _next) => {
     try {
         const users = await userService.findAll({});
         res.send(users);
-    } catch (e) {
-        return res.status(500).send({ message: error.message || 'Algum erro ocorreu ao salvar' });
+    } catch (error) {
+        return res.status(500).send({ message: error.message});
     }
 }
 
