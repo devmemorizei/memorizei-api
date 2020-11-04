@@ -43,6 +43,6 @@ app.use(`${initUrlApi}/user/`, userRouter);
 
 app.use(`${initUrlApi}/`, loginRouter);
 
-app.get(`${initUrlApi}/`, (req, res) => {
+app.get(`${initUrlApi}/`, (_req, res) => {
   res.send('API em execucao');
 });

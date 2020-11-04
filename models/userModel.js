@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const usersSchema = mongoose.Schema({
     name: {
@@ -39,6 +41,24 @@ const usersSchema = mongoose.Schema({
         default: Date.now
     }
 });
+
+usersSchema.pre('save', async function hashPassword(next) {
+    if (!this.isModified("password")) next();
+  
+    this.password = await bcrypt.hash(this.password, 8);
+});
+
+usersSchema.methods = {
+    compareHash(hash) {
+      return bcrypt.compare(hash, this.password);
+    },
+  
+    generateToken() {
+      return jwt.sign({ id: this.id }, "secret", {
+        expiresIn: 86400
+      });
+    }
+};
 
 const userModel = mongoose.model('user', usersSchema , 'user');
 
