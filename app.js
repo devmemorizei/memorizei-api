@@ -9,7 +9,7 @@ import { db } from './models/index.js';
 
 (async () => {
   try {
-    await db.mongoose.connect('mongodb+srv://adminMemorizei:admin733@memorizei.nzwcl.mongodb.net/memorizei?retryWrites=true&w=majority', {
+    await db.mongoose.connect(db.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

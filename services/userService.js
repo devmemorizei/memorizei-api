@@ -5,8 +5,8 @@ import { generateErrorDefault } from '../utils/generateErrorApi.js';
 const create = async (user) => {
 
     user.cpf = getOnlyNumber(user.cpf);
-    user.homePhone = getOnlyNumber(user.cpf);
-    user.cellPhone = getOnlyNumber(user.cpf);
+    user.homePhone = getOnlyNumber(user.homePhone);
+    user.cellPhone = getOnlyNumber(user.cellPhone);
 
     if(!validCPF(user.cpf)) return generateErrorDefault('CPF inválido!');
 

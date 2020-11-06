@@ -9,10 +9,18 @@ const login = async (req, res) => {
     }
 }
 
-const logout = async (_req, _res) => {
+const logout = (_req, _res) => {
 
     res.json({ auth: false, token: null });
-    
 }
 
-export default { login, logout };
+const sendNewPassword = async (req, res) => {
+    try {
+        const response = await loginService.sendNewPassword(req.query.email);
+        res.send(response);
+    } catch (error) {
+        return res.status(500).send({ message: error.message});
+    }
+}
+
+export default { login, logout, sendNewPassword };
