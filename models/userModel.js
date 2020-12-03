@@ -54,7 +54,7 @@ usersSchema.methods = {
     },
   
     generateToken() {
-      return jwt.sign({ id: this.id }, "secret", {
+      return jwt.sign({ id: this.id }, process.env.SECRET, {
         expiresIn: 86400
       });
     }

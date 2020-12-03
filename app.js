@@ -12,6 +12,7 @@ import { db } from './models/index.js';
     await db.mongoose.connect(db.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: true
     });
     console.log('Conectado com sucesso na base de dados');
     app.listen(process.env.PORT || 8090, () => {

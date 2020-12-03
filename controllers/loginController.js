@@ -23,4 +23,21 @@ const sendNewPassword = async (req, res) => {
     }
 }
 
-export default { login, logout, sendNewPassword };
+const changePassword = async (req, res) => {
+    try {
+        const response = await loginService.changePassword(req.query.email, req.query.oldPassword, req.query.newPassword);
+        res.send(response);
+    } catch (error) {
+        return res.status(500).send({ message: error.message});
+    }
+}
+
+const verifyToken = async (req, res) => {
+    try {
+        res.send({auth: true});
+    } catch (error) {
+        return res.status(500).send({ message: error.message});
+    }
+}
+
+export default { login, logout, sendNewPassword, changePassword, verifyToken };
