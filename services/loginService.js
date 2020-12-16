@@ -21,7 +21,6 @@ const login = async (user, password) => {
 }
 
 const sendNewPassword = async emailUser => {
-    console.log(emailUser);
     let userLogin = await getUser(emailUser);
     
     let newPassword = await userService.resetPassword(userLogin.user);
@@ -58,7 +57,7 @@ const changePassword = async (emailUser, oldPassword, newPassword) => {
 const getUser = async user => {
 
     let conditions = {};
-    console.log(user);
+
     if(validCPF(user)){
         conditions = {
             cpf: user
@@ -70,6 +69,8 @@ const getUser = async user => {
     }
 
     let userLogin = await userService.findOne(conditions);
+    console.log(conditions);
+    console.log(userLogin);
     if(!userLogin.user) throw new Error('Usuário não encontrado!');
 
     return userLogin;
