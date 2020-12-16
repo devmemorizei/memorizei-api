@@ -29,8 +29,9 @@ const findAll = async () => {
 }
 
 const findOne = async (conditions) => {
+    console.log(conditions);
     const user = await userModel.findOne(conditions);
-
+    console.log(user);
     if (!user) throw new Error('Usuário não encontrado!');
     
     return { user };
