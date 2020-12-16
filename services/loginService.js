@@ -70,7 +70,6 @@ const getUser = async user => {
     }
 
     let userLogin = await userService.findOne(conditions);
-    
     if(!userLogin.user) throw new Error('Usuário não encontrado!');
 
     return userLogin;

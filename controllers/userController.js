@@ -12,7 +12,7 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
         let userCondition = {
-            email: req.query.userEmail
+            email: req.query.email
         };
         const user = await userService.findOne(userCondition);
 
