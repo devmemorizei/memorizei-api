@@ -93,9 +93,8 @@ const userAlreadyExist = async (email, cpf) => {
         ]        
     }
 
-    let userLogin = await findOne(conditions);
-
-    if(!userLogin.user) return false;
+    const user = await userModel.findOne(conditions);
+    if(!user) return false;
 
     return true;
 }
