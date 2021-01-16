@@ -5,6 +5,7 @@ import dotEnv from 'dotenv-safe';
 
 import { userRouter } from './routes/userRouter.js';
 import { loginRouter } from './routes/loginRouter.js';
+import { bookRouter } from './routes/bookRouter.js';
 import { db } from './models/index.js';
 
 (async () => {
@@ -41,6 +42,8 @@ app.use(
 );
 
 app.use(`${initUrlApi}/user/`, userRouter);
+
+app.use(`${initUrlApi}/book/`, bookRouter);
 
 app.use(`${initUrlApi}/`, loginRouter);
 

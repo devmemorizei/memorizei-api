@@ -90,7 +90,7 @@ const userAlreadyExist = async (email, cpf) => {
             {
                 cpf: cpf
             }
-        ]        
+        ]
     }
 
     const user = await userModel.findOne(conditions);
