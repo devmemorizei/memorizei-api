@@ -8,6 +8,7 @@ const booksSchema = mongoose.Schema({
     title: [
         {
             descriptionTitle: String,
+            free: Boolean,
             chapter: [
                 {
                     descriptionChapter: String,
