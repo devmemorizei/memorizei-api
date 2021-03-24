@@ -86,7 +86,7 @@ const getUserAnswers = async (userId, bookId, titleId, chapterId) => {
         titleId: titleId,
         chapterId: chapterId,
         userId, userId
-    });
+    }).sort('repeatAt');
     
     return { answersUser };
 };
