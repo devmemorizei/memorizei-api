@@ -11,7 +11,7 @@ const getAllBooks = async (_req, res, _next) => {
 
 const handleAnswerUser = async (req, res, _next) => {
     try{
-        const result = await bookService.handleAnswerUser(req.body);
+        const result = await bookService.handleAnswerUser(req.body, req.userId);
         res.send(result);
     } catch (error) {
         return res.status(500).send({ message: error.message });

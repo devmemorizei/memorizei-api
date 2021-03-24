@@ -22,8 +22,9 @@ const findOneUserAnswer = async (objUserQuestion) => {
     return { userAnswer };
 }
 
-const handleAnswerUser = async (objUserQuestion) => {
+const handleAnswerUser = async (objUserQuestion, userId) => {
 
+    objUserQuestion.userId = userId;
     var updated = null,
         save = null,
         userQuestion = null;
