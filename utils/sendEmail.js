@@ -10,9 +10,4 @@ let transporter = nodemailer.createTransport({
     },
 });
 
-console.log({
-  email: process.env.EMAIL,
-  pass: process.env.PASSWORD
-});
-
 export { transporter };

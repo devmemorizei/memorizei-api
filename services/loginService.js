@@ -25,6 +25,12 @@ const sendNewPassword = async emailUser => {
     
     let newPassword = await userService.resetPassword(userLogin.user);
     
+    console.log('passei no envio de email');
+    console.log(transporter);
+    console.log({
+    email: process.env.EMAIL,
+    pass: process.env.PASSWORD
+    });
     let emailSended = await transporter.sendMail({
         from: '"Equipe Memorizei" <dev.memorizei@gmail.com>',
         to: userLogin.user.email,
